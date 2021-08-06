@@ -1,6 +1,7 @@
 # Annotate_images
 Interactively generate/edit segmentation labels using napari
 
+For more details on how to generate and edit annotations please check out this nice tutorial: https://napari.org/tutorials/fundamentals/labels.html
 ## Installation 
 
 The current implementation has been developed in Python 3.
