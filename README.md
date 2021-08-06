@@ -1,4 +1,4 @@
-# Annotate_images
+# annotate_images
 Interactively generate/edit segmentation labels using napari
 
 For more details on how to generate and edit annotations please refer to: https://napari.org/tutorials/fundamentals/labels.html
@@ -16,7 +16,7 @@ In order to avoid any changes to the local packages, install in a virtual enviro
 To clone the repository run the following from the terminal.
 
 ```
-   $ git clone https://github.com/SaradhaVenkatachalapathy/Annotate_images.git
+   $ git clone https://github.com/SaradhaVenkatachalapathy/annotate_images.git
 ```
 
 Then install requirements and run the setup from the repository directory
