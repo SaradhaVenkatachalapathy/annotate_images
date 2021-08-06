@@ -1,0 +1,8 @@
+pathlib2==2.3.5
+glob2==0.7
+numpy>=1.18.5
+pandas>=1.1.2
+scikit-image>=0.17.2
+napari==0.4.10
+opencv-python==4.4.0.42
+tifffile>=2020.10.1
