@@ -35,9 +35,9 @@ To correct existing annotations, run the following.
    $ python perform_simple_segmentation.py --datadir <path/to/image/directory> --annodir <path/to/annoated/images> --userannodir <path/to/output/directory> --large_image <True/False> --anno_img_depth <depth_of_annotated_image --downsize_factor <scaling_factor_for_large_images>
 ```
 
-To generate segmented labels, use the following. 
+To correct segmented labels, use the following. 
 ```
-   $ python perform_simple_segmentation.py --datadir <path/to/image/directory> --savedir <path/to/output/directory> --sigma <width_for_gaussian_filter> --threshold_method <thresholding_method> --smallest_obj_area<area_of_smallest_obj> --anno_img_depth <depth_of_annotated_image
+   $ python correct_annotation.py --datadir <path/to/image/directory> --annodir <path/to/annotated/image/directory> --userannodir <path/to/output/directory> --large_image <True/False> --anno_img_depth <depth_of_annotated_image --downsize_factor <scaling_factor_for_large_images>
 ```
 
 TO DO: add functions for model based instace segmentation
