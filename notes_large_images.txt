@@ -1,0 +1,10 @@
+Very large images slow doen napari significantly, a hacky workaround right now for annotating large objects in these large stiched images is to scale down the image. 
+
+Below are some parameters that seem to work for a few sampled images. 
+
+For perfroming simple intensity based segmentation of ducts in tissues, use the parameters:sigma=5,threshold_method="Li",anno_img_depth = "8bit",smallest_object_area = 10000
+For generating/editing annotation of ducts in tissues,  use the parameters:large_image = True, anno_img_depth = "8bit",scale_factor = 10
+
+eg:
+python perform_simple_segmentation.py --datadir <path/to/img/> --savedir <path/to/save/img/> --sigma 5 --threshold_method 'Li' --smallest_obj_area 5000
+python correct_annotations.py --datadir <path/to/img/> --annodir <path/to/anno/img/> --userannodir <path/to/save/img> --large_image True  
