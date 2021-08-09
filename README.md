@@ -1,4 +1,4 @@
-# annotate_images
+# Annotate images
 Interactively generate/edit segmentation labels using napari
 
 For more details on how to generate and edit annotations please refer to: https://napari.org/tutorials/fundamentals/labels.html
