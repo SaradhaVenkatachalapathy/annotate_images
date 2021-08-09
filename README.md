@@ -32,6 +32,7 @@ To manually generate annotations, run the following.
    $ python annotate_images.py --datadir <path/to/image/directory> --savedir <path/to/output/directory> --large_image <True/False> --anno_img_depth <depth_of_annotated_image --downsize_factor <scaling_factor_for_large_images>
 ```
 To correct existing annotations, run the following. 
+Perform segmentation(optional)
 ```
    $ python perform_simple_segmentation.py --datadir <path/to/image/directory> --annodir <path/to/annoated/images> --userannodir <path/to/output/directory> --large_image <True/False> --anno_img_depth <depth_of_annotated_image --downsize_factor <scaling_factor_for_large_images>
 ```
