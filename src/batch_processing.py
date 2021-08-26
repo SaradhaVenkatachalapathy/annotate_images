@@ -7,17 +7,18 @@ from tifffile import imread, imsave
 from src.basic_image_processing_tasks import simple_intensity_based_segmentation
 from src.interactive_segmentation import correcting_annotation_large_image,correcting_annotation,generate_labels_large_image,generate_labels
 
-def generate_annotation_labels_batch(path_to_input_dir,
-                                    path_to_output_dir,
-                                    large_image = False, anno_img_depth = "8bit",
-                                    scale_factor = 10):
+def generate_annotation_labels_batch(path_to_input_dir:str,
+                                     path_to_output_dir:str,
+                                     large_image:str = "no",
+                                     anno_img_depth:str = "8bit",
+                                     scale_factor:int = 10):
     
     """Generate annotation of all images in folder
     
     Args:
         path_to_raw_images              : path to raw images to use as guide
         path_to_output_dir              : path to the output directory 
-        large_image                     : is the image large? (true- performs resizing)
+        large_image                     : is the image large? (yes/no- performs resizing)
         anno_img_depth                  : depth of the output image 
         scale_factor                    : resizing factor
     """
@@ -33,23 +34,27 @@ def generate_annotation_labels_batch(path_to_input_dir,
         img_name = os.path.splitext(os.path.basename(path_to_raw_images[i]))[0]
         
         #correct annotation
-        if(large_image):
+        if(large_image == "yes"):
             corrected_labels =  generate_labels_large_image(path_to_raw_images[i],
                                               label_img_depth = anno_img_depth,
                                               resize_factor = scale_factor)
-        else:
+        elif(large_image == "no"):
             corrected_labels =  generate_labels(path_to_raw_images[i],
                                               label_img_depth = anno_img_depth)
+        else:
+            raise Exception('Invalid inpur for large_image: should be among {"yes","no"}')
                                               
         #Write the image to the user defined output directory
         imsave(path_to_output_dir+"/"+img_name+".tif", corrected_labels) 
         
 
 
-def correct_annotation_labels_batch(path_to_input_dir,path_to_uncorrected_annotations,
-                                    path_to_output_dir,
-                                    large_image = False, anno_img_depth = "8bit",
-                                    scale_factor = 10):
+def correct_annotation_labels_batch(path_to_input_dir:str,
+                                    path_to_uncorrected_annotations:str,
+                                    path_to_output_dir:str,
+                                    large_image:str = "no", 
+                                    anno_img_depth:str = "8bit",
+                                    scale_factor:int = 10):
     
     """Correct annotation of all images in folder
     
@@ -57,7 +62,7 @@ def correct_annotation_labels_batch(path_to_input_dir,path_to_uncorrected_annota
         path_to_raw_images              : path to raw images to use as guide
         path_to_uncorrected_annotations : path to uncorrected annotated images
         path_to_output_dir              : path to the output directory 
-        large_image                     : is the image large? (true- performs resizing)
+        large_image                     : is the image large? (yes- performs resizing)
         anno_img_depth                  : depth of the output image 
         scale_factor                    : resizing factor
     """
@@ -73,26 +78,30 @@ def correct_annotation_labels_batch(path_to_input_dir,path_to_uncorrected_annota
         img_name = os.path.splitext(os.path.basename(path_to_raw_images[i]))[0]
         
         #correct annotation
-        if(large_image):
+        if(large_image == "yes"):
             corrected_labels =  correcting_annotation_large_image(path_to_raw_images[i],
                                               path_to_uncorrected_annotations+"/"+ img_name +".tif",
                                               label_img_depth = anno_img_depth,
                                               resize_factor = scale_factor)
-        else:
+        elif(large_image == "no"):
             corrected_labels =  correcting_annotation(path_to_raw_images[i],
                                               path_to_uncorrected_annotations+"/"+ img_name +".tif",
                                               label_img_depth = anno_img_depth)
+        else:
+            raise Exception('Invalid inpur for large_image: should be among {"yes","no"}')
+            
                                               
         #Write the image to the user defined output directory
         imsave(path_to_output_dir+"/"+img_name+".tif", corrected_labels)                                      
 
 
 
-def perfrom_simple_intensity_based_segmentation(path_to_input_dir,path_to_output_dir,
-                                                fil_sigma=1,
-                                                threshold_method="Otsu",
-                                                smallest_object_area = 5,
-                                                label_img_depth = "8bit"):
+def perfrom_simple_intensity_based_segmentation(path_to_input_dir:str,
+                                                path_to_output_dir:str,
+                                                fil_sigma:float = 1,
+                                                threshold_method:str ="Otsu",
+                                                smallest_object_area:int = 5,
+                                                label_img_depth:str = "8bit"):
     """ Segment objects in a given image for all images in a folder
      
     Args:

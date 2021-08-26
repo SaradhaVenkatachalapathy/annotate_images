@@ -6,7 +6,7 @@ options = argparse.ArgumentParser(description = "Interactively annotate all imag
 
 options.add_argument('--datadir', help = 'directory of raw images' , default = 'data/nuc_imgs/')
 options.add_argument('--savedir', help = 'directory to store normalized images', default = 'data/nuc_user_annotated/')
-options.add_argument('--large_image', type = bool, help = 'Is this a large image?(will be downsampled)', default = False)
+options.add_argument('--large_image', type = str, help = 'Is this a large image?(will be downsampled)', default = 'no')
 options.add_argument('--anno_depth', type = str, help = 'Depth of the annotated image', default = "8bit")
 options.add_argument('--downsize_factor', type = int, help = 'Resizing factor for large iamge', default = 10)
 

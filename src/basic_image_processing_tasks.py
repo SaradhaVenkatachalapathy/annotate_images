@@ -49,8 +49,7 @@ def gen_background_mask(image, threshold_method = "Otsu", user_thresh = None):
     
     return bw
 
-def simple_intensity_based_segmentation(image, gaussian_sigma=1,thresh_method="Otsu",smallest_area_of_object=5,
-                                       label_img_depth = "8bit"):
+def simple_intensity_based_segmentation(image, gaussian_sigma=1, thresh_method="Otsu", smallest_area_of_object=5,label_img_depth = "8bit"):
     """Perform intensity based thresholding and detect objects
     
     Args:

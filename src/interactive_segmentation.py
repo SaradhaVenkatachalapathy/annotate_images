@@ -33,11 +33,11 @@ def napari_interactive_annotation(base_image, label_image):
 
     return updated_labels
 
-def generate_object_labels(raw_image, label_img_depth = "8bit"):
+def generate_object_labels(raw_image, label_img_depth:str = "8bit"):
     """Perform interactive annotation of an image
     
     Args:
-        raw_image_path    : path to a raw image
+        raw_image    : path to a raw image
         output_image_path : path to output directory
         label_img_depth   : depth of the output (labelled) image 
         resize_factor : resizing factor
@@ -57,7 +57,7 @@ def generate_object_labels(raw_image, label_img_depth = "8bit"):
              
     return labelled_image
 
-def generate_labels_large_image(raw_image_path,label_img_depth = "8bit",resize_factor=10):
+def generate_labels_large_image(raw_image_path:str,label_img_depth:str = "8bit",resize_factor:int =10):
     """Perform interactive annotation of a large image
     
     Args:
@@ -77,7 +77,8 @@ def generate_labels_large_image(raw_image_path,label_img_depth = "8bit",resize_f
     updated_labels = generate_object_labels(image_resized)
 
     #upsize image
-    labelled_image_upsized = cv2.resize(updated_labels, dsize=((updated_labels.shape[0] * 10),(updated_labels.shape[1] * 10)))    
+    labelled_image_upsized = cv2.resize(updated_labels, dsize=(raw_img.shape[0],raw_img.shape[1]), interpolation = cv2.INTER_NEAREST)
+    
     # correct image depth
     if (label_img_depth == "8bit"):
         labelled_image_upsized = cv2.normalize(labelled_image_upsized, None, 0, np.max(updated_labels), cv2.NORM_MINMAX, cv2.CV_8U)
@@ -115,8 +116,8 @@ def generate_labels(raw_image_path,label_img_depth = "8bit"):
    
     return updated_labels
 
-def correcting_annotation_large_image(raw_image_path, annotated_image_path,
-                                      label_img_depth = "8bit",resize_factor = 10):
+def correcting_annotation_large_image(raw_image_path:str, annotated_image_path:str,
+                                      label_img_depth:str = "8bit",resize_factor:int = 10):
     """Correct annotation of an image
     
     Args:
@@ -145,7 +146,7 @@ def correcting_annotation_large_image(raw_image_path, annotated_image_path,
     updated_labels = napari_interactive_annotation(image_resized,label_resized)
     
     #upsize image
-    labelled_image_upsized = cv2.resize(updated_labels, dsize=((updated_labels.shape[0] * 10),(updated_labels.shape[1] * 10)))
+    labelled_image_upsized = cv2.resize(updated_labels, dsize=(raw_img.shape[0],raw_img.shape[1]), interpolation = cv2.INTER_NEAREST)
     
      # correct image depth
     if (label_img_depth == "8bit"):
@@ -158,7 +159,7 @@ def correcting_annotation_large_image(raw_image_path, annotated_image_path,
 
     return labelled_image_upsized
 
-def correcting_annotation(raw_image_path, annotated_image_path,label_img_depth = "8bit"):
+def correcting_annotation(raw_image_path:str, annotated_image_path:str,label_img_depth:str = "8bit"):
     """Correct annotation of an image
     
     Args:
