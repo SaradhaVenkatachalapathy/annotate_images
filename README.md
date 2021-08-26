@@ -29,7 +29,7 @@ Then install requirements and run the setup from the repository directory
 
 To manually generate annotations, run the following. 
 ```
-   $ python annotate_images.py --datadir <path/to/image/directory> --savedir <path/to/output/directory> --large_image <True/False> --anno_img_depth <depth_of_annotated_image --downsize_factor <scaling_factor_for_large_images>
+   $ python annotate_images.py --datadir <path/to/image/directory> --savedir <path/to/output/directory> --large_image <yes/no> --anno_img_depth <depth_of_annotated_image --downsize_factor <scaling_factor_for_large_images>
 ```
 To correct existing annotations, run the following. 
 Perform segmentation(optional)
@@ -39,7 +39,7 @@ Perform segmentation(optional)
 
 To correct segmented labels, use the following. 
 ```
-   $ python correct_annotation.py --datadir <path/to/image/directory> --annodir <path/to/annotated/image/directory> --userannodir <path/to/output/directory> --large_image <True/False> --anno_img_depth <depth_of_annotated_image --downsize_factor <scaling_factor_for_large_images>
+   $ python correct_annotation.py --datadir <path/to/image/directory> --annodir <path/to/annotated/image/directory> --userannodir <path/to/output/directory> --large_image <yes/no> --anno_img_depth <depth_of_annotated_image --downsize_factor <scaling_factor_for_large_images>
 ```
 
 TO DO: add functions for model based instace segmentation
