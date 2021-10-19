@@ -1,5 +1,5 @@
 import argparse
-from src.batch_processing import correct_annotation_labels_batch
+from annotate.batch_processing import correct_annotation_labels_batch
 
 # Parse the input arguments
 options = argparse.ArgumentParser(description = "Correct annotations for a given set of images")
