@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='interactive_segmentation',
+    name='annotate',
     version='0.1',
     packages=['src'],
     license='MIT'
