@@ -25,7 +25,7 @@ Then install requirements and run the setup from the repository directory
    $ pip install -r requirements.txt
    $ python setup.py install
 ```
-## Useage
+## Usage
 
 To manually generate annotations, run the following. 
 ```
