@@ -28,6 +28,7 @@ def generate_annotation_labels_batch(path_to_input_dir:str,
 
     # Extract the paths to images (assumed here to be TIF)
     path_to_raw_images = sorted(glob(path_to_input_dir + "*.tif"))
+    print(path_to_raw_images)
     
     for i in range(len(path_to_raw_images)):
         #Extract the file name
