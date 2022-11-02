@@ -1,5 +1,5 @@
 import argparse
-from src.batch_processing import perfrom_simple_intensity_based_segmentation
+from annotate.batch_processing import perfrom_simple_intensity_based_segmentation
 
 # Parse the input arguments
 options = argparse.ArgumentParser(description = "Correct annotations for a given set of images")
